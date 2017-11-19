@@ -229,6 +229,441 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/18/float浮动换行导致文档流混乱解决办法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="laughing liang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="laughing's home">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/18/float浮动换行导致文档流混乱解决办法/" itemprop="url">float浮动换行导致文档流混乱解决办法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-18T21:34:21+08:00">
+                2017-11-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日志/" itemprop="url" rel="index">
+                    <span itemprop="name">日志</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>将一个盒子big设置固定宽度，并用伪类清除浮动<br>在里面设置两个盒子1,2,<br>将1设置左浮动和宽高，<br>将2设置右浮动并在里面设置3，4两个盒子（2触发了BFC不必清除浮动）<br>将3，4设置右浮动和宽高，当3或者4的其中一个盒子宽度大于一定值时<br>此时2的宽高由3，4撑开,<br>调整3或者4的宽度，当2的宽度不够（big宽度-1宽度）时，2会”掉”下来，<br>持续增大3的宽度，当3+4的宽度大于big时，3，4会折行显示，并且2的宽度等于big的宽度</p>
+<h2 id="盒子掉下遵循的方式"><a href="#盒子掉下遵循的方式" class="headerlink" title="盒子掉下遵循的方式"></a>盒子掉下遵循的方式</h2><p>当1，2盒子宽度大于big时，总是右侧浮动的盒子掉下去（换行）</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>其实解决方法很简单，给1和2都设置固定宽度，让里面的浮动元素只在1，2里面浮动，换行也只是在1，2里面换行，而不会影响1，2的布局</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/16/form以及轮播图下标/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="laughing liang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="laughing's home">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/16/form以及轮播图下标/" itemprop="url">table以及轮播图下标</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-16T22:45:48+08:00">
+                2017-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日志/" itemprop="url" rel="index">
+                    <span itemprop="name">日志</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天学习了form表单的的一些相关知识</p>
+<!-- form包含的最主要元素为input，input需要被嵌套在form里面
+form译为表单，是一个块元素，有action，method等属性
+这两个属性分别为表单提交地址，提交方式,
+
+input的最主要属性为type，值可以是text， -->
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/15/关于考试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="laughing liang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="laughing's home">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/15/关于考试/" itemprop="url">关于考试</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-15T23:18:54+08:00">
+                2017-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日志/" itemprop="url" rel="index">
+                    <span itemprop="name">日志</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>上个月末进入了某机构学习前端课程，具体机构名字不表，到现在为止学了快4周了吧。<br>简单分享一下这段时间学习的体验。首先我报名的这家机构的学习氛围还是挺不错的，老师现场教学非远<br>程视频。虽说之前在网上把HTML，CSS基础课程扫了一遍，但是在机构的这段时间学习下来我觉得还是有<br>很多收获是自己学习不会注意到和理解的不够透彻的地方的。<br>比如如何使用border做一个三角形，一些元素本身具有的默认样式，margin重叠和传递问题，float的<br>一些细节讲解，position三种方法的用途和特性等。也简单讲解了BFC的知识。<br>坦白说在我自学的过程中这些东西都是使用过的，但是更深入层次的理解我还是掌握的不够深，不够透彻。<br>所以这些都是我在机构外没学到和忽略的东西。</p>
+<h2 id="学前端需要记笔记？"><a href="#学前端需要记笔记？" class="headerlink" title="学前端需要记笔记？"></a>学前端需要记笔记？</h2><p>记笔记可以将知识点总结下来，多用几次烂熟于心之后就可以事半功倍。<br>也许你会说用得多了自然什么都知道了，但是我想说的是有些东西在用中了解，和了解了之后开始用，那后<br>者肯定是比前者省力的。<br>目前观察看来，机构的老师比较认真负责，每堂课都会把知识点总结出来供学生记录理解。老师虽然教学经<br>验不太丰富，但是讲解时是比较有耐心的，每节课下课也会留下来解决同学们的疑问，但是这几天好像一下<br>课就不见了提问抓不到人，希望只是暂时这样。平时布置的作业要求当堂完成，周末还会留作业。比较有意<br>思的是近期安排的一次考试，90分和80分以上的人寥寥无几，<br>老师便要求罚抄笔记并且1对1再次考核。这种阶段性考试我觉得还挺有意思的，目的在于更好的记住所学知识，<br>以避免‘笔记记完了就不再看’的问题。</p>
+<p>一段时间没写日志了，想到哪写到哪可能条理不是太清晰，后续再写一些学习过程中遇到的问题和解决经验吧。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/25/我为什么选择IT这条路/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -535,7 +970,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -557,7 +992,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
