@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="学习,浮动," />
+  <meta name="keywords" content="技术,WordPress," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="将一个盒子big设置固定宽度，并用伪类清除浮动在里面设置两个盒子1,2,将1设置左浮动和宽高，将2设置右浮动并在里面设置3，4两个盒子（2触发了BFC不必清除浮动）将3，4设置右浮动和宽高，当3或者4的其中一个盒子宽度大于一定值时此时2的宽高由3，4撑开,调整3或者4的宽度，当2的宽度不够（big宽度-1宽度）时，2会”掉”下来，持续增大3的宽度，当3+4的宽度大于big时，3，4会折行显示，并且">
-<meta name="keywords" content="学习,浮动">
+<meta name="description" content="这两天刚搭建好WordPress站点，想着怎么把我最近做的整站练习放上面去，所以刚刚搜索了一下方法，先简单说一下实现方法，然后写具体的操作步骤。 总体方法将侧边栏功能下方，新加入一个选项，命名为‘练习’，点击‘练习’自动跳转到新链接 具体实施步骤            1.上传本地文件到服务器        这步的含义不难理解，要想让任何人访问新链接，那链接肯定要指向被访问的文件。目前我采取的方法">
+<meta name="keywords" content="技术,WordPress">
 <meta property="og:type" content="article">
-<meta property="og:title" content="float浮动换行导致文档流混乱解决办法">
-<meta property="og:url" content="http://yoursite.com/2017/11/18/float浮动换行导致文档流混乱解决办法/index.html">
+<meta property="og:title" content="WordPress跳转服务器文件">
+<meta property="og:url" content="http://yoursite.com/2017/11/25/WordPress跳转服务器文件/index.html">
 <meta property="og:site_name" content="laughing&#39;s home">
-<meta property="og:description" content="将一个盒子big设置固定宽度，并用伪类清除浮动在里面设置两个盒子1,2,将1设置左浮动和宽高，将2设置右浮动并在里面设置3，4两个盒子（2触发了BFC不必清除浮动）将3，4设置右浮动和宽高，当3或者4的其中一个盒子宽度大于一定值时此时2的宽高由3，4撑开,调整3或者4的宽度，当2的宽度不够（big宽度-1宽度）时，2会”掉”下来，持续增大3的宽度，当3+4的宽度大于big时，3，4会折行显示，并且">
+<meta property="og:description" content="这两天刚搭建好WordPress站点，想着怎么把我最近做的整站练习放上面去，所以刚刚搜索了一下方法，先简单说一下实现方法，然后写具体的操作步骤。 总体方法将侧边栏功能下方，新加入一个选项，命名为‘练习’，点击‘练习’自动跳转到新链接 具体实施步骤            1.上传本地文件到服务器        这步的含义不难理解，要想让任何人访问新链接，那链接肯定要指向被访问的文件。目前我采取的方法">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-19T13:14:42.000Z">
+<meta property="og:updated_time" content="2017-11-25T12:21:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="float浮动换行导致文档流混乱解决办法">
-<meta name="twitter:description" content="将一个盒子big设置固定宽度，并用伪类清除浮动在里面设置两个盒子1,2,将1设置左浮动和宽高，将2设置右浮动并在里面设置3，4两个盒子（2触发了BFC不必清除浮动）将3，4设置右浮动和宽高，当3或者4的其中一个盒子宽度大于一定值时此时2的宽高由3，4撑开,调整3或者4的宽度，当2的宽度不够（big宽度-1宽度）时，2会”掉”下来，持续增大3的宽度，当3+4的宽度大于big时，3，4会折行显示，并且">
+<meta name="twitter:title" content="WordPress跳转服务器文件">
+<meta name="twitter:description" content="这两天刚搭建好WordPress站点，想着怎么把我最近做的整站练习放上面去，所以刚刚搜索了一下方法，先简单说一下实现方法，然后写具体的操作步骤。 总体方法将侧边栏功能下方，新加入一个选项，命名为‘练习’，点击‘练习’自动跳转到新链接 具体实施步骤            1.上传本地文件到服务器        这步的含义不难理解，要想让任何人访问新链接，那链接肯定要指向被访问的文件。目前我采取的方法">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/18/float浮动换行导致文档流混乱解决办法/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/25/WordPress跳转服务器文件/"/>
 
 
 
 
 
-  <title>float浮动换行导致文档流混乱解决办法 | laughing's home</title>
+  <title>WordPress跳转服务器文件 | laughing's home</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/18/float浮动换行导致文档流混乱解决办法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/25/WordPress跳转服务器文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="laughing liang">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">float浮动换行导致文档流混乱解决办法</h1>
+          <h1 class="post-title" itemprop="name headline">WordPress跳转服务器文件</h1>
         
 
         <div class="post-meta">
@@ -262,8 +262,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-18T21:34:21+08:00">
-                2017-11-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-25T19:58:31+08:00">
+                2017-11-25
               </time>
             
 
@@ -272,28 +272,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/日志/" itemprop="url" rel="index">
-                    <span itemprop="name">日志</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -322,10 +300,17 @@
       
 
       
-        <p>将一个盒子big设置固定宽度，并用伪类清除浮动<br>在里面设置两个盒子1,2,<br>将1设置左浮动和宽高，<br>将2设置右浮动并在里面设置3，4两个盒子（2触发了BFC不必清除浮动）<br>将3，4设置右浮动和宽高，当3或者4的其中一个盒子宽度大于一定值时<br>此时2的宽高由3，4撑开,<br>调整3或者4的宽度，当2的宽度不够（big宽度-1宽度）时，2会”掉”下来，<br>持续增大3的宽度，当3+4的宽度大于big时，3，4会折行显示，并且2的宽度等于big的宽度</p>
-<h2 id="盒子掉下遵循的方式"><a href="#盒子掉下遵循的方式" class="headerlink" title="盒子掉下遵循的方式"></a>盒子掉下遵循的方式</h2><p>当1，2盒子宽度大于big时，总是右侧浮动的盒子掉下去（换行）</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>其实解决方法很简单，给1和2都设置固定宽度，让里面的浮动元素只在1，2里面浮动，换行也只是在1，2里面换行，而不会影响1，2的布局</p>
+        <p>这两天刚搭建好WordPress站点，想着怎么把我最近做的整站练习放上面去，<br>所以刚刚搜索了一下方法，先简单说一下实现方法，然后写具体的操作步骤。</p>
+<h2 id="总体方法"><a href="#总体方法" class="headerlink" title="总体方法"></a>总体方法</h2><p>将侧边栏功能下方，新加入一个选项，命名为‘练习’，点击‘练习’自动跳转到新链接</p>
+<h2 id="具体实施步骤"><a href="#具体实施步骤" class="headerlink" title="具体实施步骤"></a>具体实施步骤</h2><ul><br>    <li><br>        <h3>1.上传本地文件到服务器</h3><br>        <p>这步的含义不难理解，要想让任何人访问新链接，那链接肯定要指向被访问的文件。目前我采取的方法是将文件夹直接上传到服务器的htdocs文件夹里，因为这是你服务区的根目录</p><br>    </li><br>    <li><br>        <h3>2.修改WordPress默认文件</h3><br>        <p>将服务器/htdocs/wp-includes/widgets里面<br>            class-wp-widget-meta.php文件下载下来以便修改。用编辑器打开.php文件后搜索‘wp-login’，这时就找到了功能区所在的ul，此时可以看到<br>            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">&lt;?php wp_register(); ?&gt;</div><div class="line">&lt;li&gt;&lt;?php wp_loginout(); ?&gt;&lt;/li&gt;</div><div class="line">&lt;li&gt;&lt;a href=&quot;&lt;?php echo esc_url( get_bloginfo( &apos;rss2_url&apos; ) ); ?&gt;&quot;&gt;&lt;?php _e(&apos;Entries &lt;abbr title=&quot;Really Simple Syndication&quot;&gt;RSS&lt;/abbr&gt;&apos;); ?&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">&lt;li&gt;&lt;a href=&quot;../../file/file/index.html&quot;&gt;练习&lt;/a&gt;&lt;/li&gt;</div><div class="line">&lt;li&gt;&lt;a href=&quot;&lt;?php echo esc_url( get_bloginfo( &apos;comments_rss2_url&apos; ) ); ?&gt;&quot;&gt;&lt;?php _e(&apos;Comments &lt;abbr title=&quot;Really Simple Syndication&quot;&gt;RSS&lt;/abbr&gt;&apos;); ?&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">&lt;?php</div><div class="line">/**</div><div class="line"> * Filters the &quot;Powered by WordPress&quot; text in the Meta widget.</div><div class="line"> *</div><div class="line"> * @since 3.6.0</div><div class="line"> *</div><div class="line"> * @param string $title_text Default title text for the WordPress.org link.</div><div class="line"> */</div><div class="line">echo apply_filters( &apos;widget_meta_poweredby&apos;, sprintf( &apos;&lt;li&gt;&lt;a href=&quot;%s&quot; title=&quot;%s&quot;&gt;%s&lt;/a&gt;&lt;/li&gt;&apos;,</div><div class="line">	esc_url( __( &apos;https://wordpress.org/&apos; ) ),</div><div class="line">	esc_attr__( &apos;Powered by WordPress, state-of-the-art semantic personal publishing platform.&apos; ),</div><div class="line">	_x( &apos;WordPress.org&apos;, &apos;meta widget link text&apos; )</div><div class="line">) );</div><div class="line"></div><div class="line">wp_meta();</div><div class="line">?&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure><br><br>        </p><br>    </li><br></ul>
 
+
+
+
+
+
+
+<!-- end -->
       
     </div>
     
@@ -342,9 +327,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/学习/" rel="tag"># 学习</a>
+            <a href="/tags/技术/" rel="tag"># 技术</a>
           
-            <a href="/tags/浮动/" rel="tag"># 浮动</a>
+            <a href="/tags/WordPress/" rel="tag"># WordPress</a>
           
         </div>
       
@@ -357,8 +342,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/16/form以及轮播图下标/" rel="next" title="table以及轮播图下标">
-                <i class="fa fa-chevron-left"></i> table以及轮播图下标
+              <a href="/2017/11/23/设置title前面的图标/" rel="next" title="设置title前面的图标">
+                <i class="fa fa-chevron-left"></i> 设置title前面的图标
               </a>
             
           </div>
@@ -366,10 +351,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/23/搭建一个WordPress站点/" rel="prev" title="搭建一个WordPress站点(一)">
-                搭建一个WordPress站点(一) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -505,7 +486,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#盒子掉下遵循的方式"><span class="nav-number">1.</span> <span class="nav-text">盒子掉下遵循的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#总体方法"><span class="nav-number">1.</span> <span class="nav-text">总体方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体实施步骤"><span class="nav-number">2.</span> <span class="nav-text">具体实施步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">1.上传本地文件到服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">2.修改WordPress默认文件</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -229,6 +229,384 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/25/WordPress跳转服务器文件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="laughing liang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="laughing's home">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/25/WordPress跳转服务器文件/" itemprop="url">WordPress跳转服务器文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-25T19:58:31+08:00">
+                2017-11-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这两天刚搭建好WordPress站点，想着怎么把我最近做的整站练习放上面去，<br>所以刚刚搜索了一下方法，先简单说一下实现方法，然后写具体的操作步骤。</p>
+<h2 id="总体方法"><a href="#总体方法" class="headerlink" title="总体方法"></a>总体方法</h2><p>将侧边栏功能下方，新加入一个选项，命名为‘练习’，点击‘练习’自动跳转到新链接</p>
+<h2 id="具体实施步骤"><a href="#具体实施步骤" class="headerlink" title="具体实施步骤"></a>具体实施步骤</h2><ul><br>    <li><br>        <h3>1.上传本地文件到服务器</h3><br>        <p>这步的含义不难理解，要想让任何人访问新链接，那链接肯定要指向被访问的文件。目前我采取的方法是将文件夹直接上传到服务器的htdocs文件夹里，因为这是你服务区的根目录</p><br>    </li><br>    <li><br>        <h3>2.修改WordPress默认文件</h3><br>        <p>将服务器/htdocs/wp-includes/widgets里面<br>            class-wp-widget-meta.php文件下载下来以便修改。用编辑器打开.php文件后搜索‘wp-login’，这时就找到了功能区所在的ul，此时可以看到<br>            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">&lt;?php wp_register(); ?&gt;</div><div class="line">&lt;li&gt;&lt;?php wp_loginout(); ?&gt;&lt;/li&gt;</div><div class="line">&lt;li&gt;&lt;a href=&quot;&lt;?php echo esc_url( get_bloginfo( &apos;rss2_url&apos; ) ); ?&gt;&quot;&gt;&lt;?php _e(&apos;Entries &lt;abbr title=&quot;Really Simple Syndication&quot;&gt;RSS&lt;/abbr&gt;&apos;); ?&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">&lt;li&gt;&lt;a href=&quot;../../file/file/index.html&quot;&gt;练习&lt;/a&gt;&lt;/li&gt;</div><div class="line">&lt;li&gt;&lt;a href=&quot;&lt;?php echo esc_url( get_bloginfo( &apos;comments_rss2_url&apos; ) ); ?&gt;&quot;&gt;&lt;?php _e(&apos;Comments &lt;abbr title=&quot;Really Simple Syndication&quot;&gt;RSS&lt;/abbr&gt;&apos;); ?&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">&lt;?php</div><div class="line">/**</div><div class="line"> * Filters the &quot;Powered by WordPress&quot; text in the Meta widget.</div><div class="line"> *</div><div class="line"> * @since 3.6.0</div><div class="line"> *</div><div class="line"> * @param string $title_text Default title text for the WordPress.org link.</div><div class="line"> */</div><div class="line">echo apply_filters( &apos;widget_meta_poweredby&apos;, sprintf( &apos;&lt;li&gt;&lt;a href=&quot;%s&quot; title=&quot;%s&quot;&gt;%s&lt;/a&gt;&lt;/li&gt;&apos;,</div><div class="line">	esc_url( __( &apos;https://wordpress.org/&apos; ) ),</div><div class="line">	esc_attr__( &apos;Powered by WordPress, state-of-the-art semantic personal publishing platform.&apos; ),</div><div class="line">	_x( &apos;WordPress.org&apos;, &apos;meta widget link text&apos; )</div><div class="line">) );</div><div class="line"></div><div class="line">wp_meta();</div><div class="line">?&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure><br><br>        </p><br>    </li><br></ul>
+
+
+
+
+
+
+
+<!-- end -->
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/23/设置title前面的图标/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="laughing liang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="laughing's home">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/23/设置title前面的图标/" itemprop="url">设置title前面的图标</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-23T23:53:11+08:00">
+                2017-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>每个网站标签栏上都有个小图标，看着自己的网页只是空空的，所以干脆学习一下<br>怎么在title上加图标。<br>不搜不知道，一艘吓一跳啊，这么简单的功能我竟然之前一直没学。<br>简单说，就是一个link标签加一张.ico的图就可以啦，<br>这里直接挂出来我看到的一个方法:<br><a href="http://blog.csdn.net/Creabine/article/details/50564984" target="_blank" rel="external">http://blog.csdn.net/Creabine/article/details/50564984</a></p>
+<p>具体来讲就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;shortcut icon&quot; href=&quot; bitbug_favicon.ico&quot; /&gt;</div></pre></td></tr></table></figure>
+<p>多数时候我们都是用link标签来引入样式表，rel的值是stylesheet，link的<br>rel属性是规定被链接文档之间与当前文档的关系的意思，<br>（w3school的表述为:规定当前文档与被链接文档之间的关系,但是我认为按照从属结构来说<br>我的表述更妥当一些）<br>例如&lt;link rel=”stylesheet”&gt;就是说明了link链接的文档属于当前的文档的外部链接样式表。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">eg:&lt;link rel=&quot;stylesheet&quot; href=&quot;&quot;&gt;</div></pre></td></tr></table></figure>
+<p>那么相对应的，将icon赋给rel，就代表被连接文档与当前文档之间是图标关系，所以我们只需要一个尺寸大小合适的.ico文件，然后引入到link中就可以在title前面加图标了，至于这个<br>图标是怎么加上去的，加的机制是什么今天先不研究了。<br>放一个生成图标的网站。</p>
+<p><a href="http://www.bitbug.net/" target="_blank" rel="external">http://www.bitbug.net/</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/23/搭建一个WordPress站点/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="laughing liang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="laughing's home">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/23/搭建一个WordPress站点/" itemprop="url">搭建一个WordPress站点(一)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-23T23:52:52+08:00">
+                2017-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近在系统学习前端的知识，怎么学？老师教的那种。</p>
+<h2 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h2><p>然后想搭建一个WordPress站点很久了，最近直接一股脑开了，一天抽点时间用了大概2个晚上吧，修改服务器系统（将win2008修改为linux），修改后因为不熟解析和绑定操作，又废了会功夫，当然第一次做这些操作并不是容易的，但是这其实并不是难事，做过一次有经验了其实就容易多了。然后就搭建成功了。总体来说还不知道拿这个站点干什么，这篇文会同步到我的博客里，因为我打算不拿WordPress写博客，有点杀鸡用牛刀的感觉。<br>站点地址 <a href="http://www.1io0.com" target="_blank" rel="external">http://www.1io0.com</a></p>
+<h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><p>后面会将我在设置阿里云服务器上设置调试时间较多的地方更新出来做个系列文章。<br>博客还在不断建设和完善中，希望能坚持写下来。最近做整站空余时间较少，所以希望以后能抽空写写吧。</p>
+<p>愿世界和平！</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/18/float浮动换行导致文档流混乱解决办法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -970,7 +1348,7 @@ input的最主要属性为type，值可以是text， -->
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -992,7 +1370,7 @@ input的最主要属性为type，值可以是text， -->
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
