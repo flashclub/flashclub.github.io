@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="最近在系统学习前端的知识，怎么学？老师教的那种。 想法然后想搭建一个WordPress站点很久了，最近直接一股脑开了，一天抽点时间用了大概2个晚上吧，修改服务器系统（将win2008修改为linux），修改后因为不熟解析和绑定操作，又废了会功夫，当然第一次做这些操作并不是容易的，但是这其实并不是难事，做过一次有经验了其实就容易多了。然后就搭建成功了。总体来说还不知道拿这个站点干什么，这篇文会同步到">
+<meta name="description" content="已经快半夜1点了，我就简单说一下我刚刚弄好的canvas_nest的使用方法吧，不知道canvas_nest的请搜索一下，用这个效果的博客很多。 看到个教程，说要修改next/layout/_layout.swig和next/_config.yml两个文件才可以实现效果 因为next/layout/_layout.swig里面引用的文件链接打不开，我反过来调过去折腾了半个小时也不知道是哪里出的问题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建一个WordPress站点(一)">
-<meta property="og:url" content="http://yoursite.com/2017/11/23/搭建一个WordPress站点/index.html">
+<meta property="og:title" content="next主题修改样式及canvas_nest插件使用">
+<meta property="og:url" content="http://yoursite.com/2017/11/28/next主题修改及canvas-nest插件使用/index.html">
 <meta property="og:site_name" content="laughing&#39;s home">
-<meta property="og:description" content="最近在系统学习前端的知识，怎么学？老师教的那种。 想法然后想搭建一个WordPress站点很久了，最近直接一股脑开了，一天抽点时间用了大概2个晚上吧，修改服务器系统（将win2008修改为linux），修改后因为不熟解析和绑定操作，又废了会功夫，当然第一次做这些操作并不是容易的，但是这其实并不是难事，做过一次有经验了其实就容易多了。然后就搭建成功了。总体来说还不知道拿这个站点干什么，这篇文会同步到">
+<meta property="og:description" content="已经快半夜1点了，我就简单说一下我刚刚弄好的canvas_nest的使用方法吧，不知道canvas_nest的请搜索一下，用这个效果的博客很多。 看到个教程，说要修改next/layout/_layout.swig和next/_config.yml两个文件才可以实现效果 因为next/layout/_layout.swig里面引用的文件链接打不开，我反过来调过去折腾了半个小时也不知道是哪里出的问题">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-23T16:30:54.000Z">
+<meta property="og:updated_time" content="2017-11-27T17:11:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搭建一个WordPress站点(一)">
-<meta name="twitter:description" content="最近在系统学习前端的知识，怎么学？老师教的那种。 想法然后想搭建一个WordPress站点很久了，最近直接一股脑开了，一天抽点时间用了大概2个晚上吧，修改服务器系统（将win2008修改为linux），修改后因为不熟解析和绑定操作，又废了会功夫，当然第一次做这些操作并不是容易的，但是这其实并不是难事，做过一次有经验了其实就容易多了。然后就搭建成功了。总体来说还不知道拿这个站点干什么，这篇文会同步到">
+<meta name="twitter:title" content="next主题修改样式及canvas_nest插件使用">
+<meta name="twitter:description" content="已经快半夜1点了，我就简单说一下我刚刚弄好的canvas_nest的使用方法吧，不知道canvas_nest的请搜索一下，用这个效果的博客很多。 看到个教程，说要修改next/layout/_layout.swig和next/_config.yml两个文件才可以实现效果 因为next/layout/_layout.swig里面引用的文件链接打不开，我反过来调过去折腾了半个小时也不知道是哪里出的问题">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/23/搭建一个WordPress站点/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/28/next主题修改及canvas-nest插件使用/"/>
 
 
 
 
 
-  <title>搭建一个WordPress站点(一) | laughing's home</title>
+  <title>next主题修改样式及canvas_nest插件使用 | laughing's home</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/23/搭建一个WordPress站点/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/next主题修改及canvas-nest插件使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="laughing liang">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">搭建一个WordPress站点(一)</h1>
+          <h1 class="post-title" itemprop="name headline">next主题修改样式及canvas_nest插件使用</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-23T23:52:52+08:00">
-                2017-11-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-28T00:58:30+08:00">
+                2017-11-28
               </time>
             
 
@@ -299,10 +299,12 @@
       
 
       
-        <p>最近在系统学习前端的知识，怎么学？老师教的那种。</p>
-<h2 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h2><p>然后想搭建一个WordPress站点很久了，最近直接一股脑开了，一天抽点时间用了大概2个晚上吧，修改服务器系统（将win2008修改为linux），修改后因为不熟解析和绑定操作，又废了会功夫，当然第一次做这些操作并不是容易的，但是这其实并不是难事，做过一次有经验了其实就容易多了。然后就搭建成功了。总体来说还不知道拿这个站点干什么，这篇文会同步到我的博客里，因为我打算不拿WordPress写博客，有点杀鸡用牛刀的感觉。<br>站点地址 <a href="http://www.1io0.com" target="_blank" rel="external">http://www.1io0.com</a></p>
-<h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><p>后面会将我在设置阿里云服务器上设置调试时间较多的地方更新出来做个系列文章。<br>博客还在不断建设和完善中，希望能坚持写下来。最近做整站空余时间较少，所以希望以后能抽空写写吧。</p>
-<p>愿世界和平！</p>
+        <p>已经快半夜1点了，我就简单说一下我刚刚弄好的canvas_nest的使用方法吧，<br>不知道canvas_nest的请搜索一下，用这个效果的博客很多。</p>
+<p>看到个教程，说要修改next/layout/_layout.swig和next/_config.yml两个文件才可以实现效果</p>
+<p>因为next/layout/_layout.swig里面引用的文件链接打不开，我反过来调过去折腾了半个小时也不知道是哪里出的问题<br>后来再一搜索关键字canvas_nest，看见一个帖子详细说明hexo具体怎么配置，里面虽然没提及canvas_nest，但是<br>贴出来的配置里面有这个插件，原来它已经被集成在next主题里面了，只需要将布尔值设置为false就可以了。<br>具体为：在_config.yml文件找到canvas_nest并按照如下设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># Canvas-nest</div><div class="line">canvas_nest: true</div></pre></td></tr></table></figure>
+<p>运行hexo clean 和 hexo g、  hexo s，就可以在本地查看效果了。<br>同理，可以修改主题样式：找到schemes，几个样式自己选择一个喜欢的，hexo clean、hexo g、hexo s看效果，<br>都没问题就可以hexo d，部署到远端了。</p>
+<p>ok以后再讲_config.yml好玩的配置分享出来，1点11了，该休息了，下篇文章见！</p>
 
       
     </div>
@@ -327,8 +329,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/18/float浮动换行导致文档流混乱解决办法/" rel="next" title="float浮动换行导致文档流混乱解决办法">
-                <i class="fa fa-chevron-left"></i> float浮动换行导致文档流混乱解决办法
+              <a href="/2017/11/25/WordPress跳转服务器文件/" rel="next" title="WordPress跳转服务器文件">
+                <i class="fa fa-chevron-left"></i> WordPress跳转服务器文件
               </a>
             
           </div>
@@ -336,10 +338,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/23/设置title前面的图标/" rel="prev" title="设置title前面的图标">
-                设置title前面的图标 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -393,17 +391,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -465,22 +454,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#想法"><span class="nav-number">1.</span> <span class="nav-text">想法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后续"><span class="nav-number">2.</span> <span class="nav-text">后续</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
