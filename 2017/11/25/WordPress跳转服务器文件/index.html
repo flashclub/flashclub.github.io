@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -56,7 +56,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
 
 
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
@@ -84,9 +84,9 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="WordPress跳转服务器文件">
 <meta property="og:url" content="http://yoursite.com/2017/11/25/WordPress跳转服务器文件/index.html">
-<meta property="og:site_name" content="laughing&#39;s home">
+<meta property="og:site_name" content="梁长路的博客">
 <meta property="og:description" content="这两天刚搭建好WordPress站点，想着怎么把我最近做的整站练习放上面去，所以刚刚搜索了一下方法，先简单说一下实现方法，然后写具体的操作步骤。 总体方法将侧边栏功能下方，新加入一个选项，命名为‘练习’，点击‘练习’自动跳转到新链接。 具体实施步骤    上传本地文件到服务器这步的含义不难理解，要想让任何人访问新链接，那链接肯定要指向被访问的文件。目前我采取的方法是将文件夹直接上传到服务器的htd">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-11-27T14:35:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WordPress跳转服务器文件">
@@ -126,7 +126,7 @@
 
 
 
-  <title>WordPress跳转服务器文件 | laughing's home</title>
+  <title>WordPress跳转服务器文件 | 梁长路的博客</title>
   
 
 
@@ -138,7 +138,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -156,12 +156,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">laughing's home</span>
+        <span class="site-title">梁长路的博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">welcome to my home</p>
+        <p class="site-subtitle">路漫漫其修远兮 吾将上下而求索</p>
       
   </div>
 
@@ -186,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -196,7 +196,17 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
           </a>
         </li>
       
@@ -236,13 +246,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/25/WordPress跳转服务器文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="laughing liang">
+      <meta itemprop="name" content="长路">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="laughing's home">
+      <meta itemprop="name" content="梁长路的博客">
     </span>
 
     
@@ -260,7 +270,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-25T19:58:31+08:00">
                 2017-11-25
@@ -326,7 +336,7 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="laughing liang WeChat Pay"/>
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="长路 WeChat Pay"/>
         <p>WeChat Pay</p>
       </div>
     
@@ -430,10 +440,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -442,8 +452,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">laughing liang</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-author-name" itemprop="name">长路</p>
+              <p class="site-description motion-element" itemprop="description">我分享人生的一块地方</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -454,7 +464,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">8</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -465,7 +475,7 @@
               <div class="site-state-item site-state-categories">
                 
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 
               </div>
             
@@ -476,7 +486,7 @@
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">Tags</span>
                 
               </div>
             
@@ -542,13 +552,13 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">laughing liang</span>
+  <span class="author" itemprop="copyrightHolder">长路</span>
 
   
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
