@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="梁长路,1io0.com,hexo," />
+  <meta name="keywords" content="主题," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="已经快半夜1点了，我就简单说一下我刚刚弄好的canvas_nest的使用方法吧，不知道canvas_nest的请搜索一下，用这个效果的博客很多。 看到个教程，说要修改next/layout/_layout.swig和next/_config.yml两个文件才可以实现效果 因为next/layout/_layout.swig里面引用的文件链接打不开，我反过来调过去折腾了半个小时也不知道是哪里出的问题">
+<meta name="description" content="已经快半夜1点了，我就简单说一下我刚刚弄好的canvas_nest的使用方法吧，不知道canvas_nest的请搜索一下，用这个效果的博客很多。">
+<meta name="keywords" content="主题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="next主题修改样式及canvas_nest插件使用">
 <meta property="og:url" content="http://yoursite.com/2017/11/28/next主题修改及canvas-nest插件使用/index.html">
 <meta property="og:site_name" content="梁长路的博客">
-<meta property="og:description" content="已经快半夜1点了，我就简单说一下我刚刚弄好的canvas_nest的使用方法吧，不知道canvas_nest的请搜索一下，用这个效果的博客很多。 看到个教程，说要修改next/layout/_layout.swig和next/_config.yml两个文件才可以实现效果 因为next/layout/_layout.swig里面引用的文件链接打不开，我反过来调过去折腾了半个小时也不知道是哪里出的问题">
+<meta property="og:description" content="已经快半夜1点了，我就简单说一下我刚刚弄好的canvas_nest的使用方法吧，不知道canvas_nest的请搜索一下，用这个效果的博客很多。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-30T13:25:22.034Z">
+<meta property="og:updated_time" content="2017-12-03T08:33:15.804Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="next主题修改样式及canvas_nest插件使用">
-<meta name="twitter:description" content="已经快半夜1点了，我就简单说一下我刚刚弄好的canvas_nest的使用方法吧，不知道canvas_nest的请搜索一下，用这个效果的博客很多。 看到个教程，说要修改next/layout/_layout.swig和next/_config.yml两个文件才可以实现效果 因为next/layout/_layout.swig里面引用的文件链接打不开，我反过来调过去折腾了半个小时也不知道是哪里出的问题">
+<meta name="twitter:description" content="已经快半夜1点了，我就简单说一下我刚刚弄好的canvas_nest的使用方法吧，不知道canvas_nest的请搜索一下，用这个效果的博客很多。">
 
 
 
@@ -200,12 +201,52 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
           </a>
         </li>
       
@@ -319,8 +360,7 @@
       
 
       
-        <p>已经快半夜1点了，我就简单说一下我刚刚弄好的canvas_nest的使用方法吧，<br>不知道canvas_nest的请搜索一下，用这个效果的博客很多。</p>
-<p>看到个教程，说要修改next/layout/_layout.swig和next/_config.yml两个文件才可以实现效果</p>
+        <p>已经快半夜1点了，我就简单说一下我刚刚弄好的canvas_nest的使用方法吧，<br>不知道canvas_nest的请搜索一下，用这个效果的博客很多。<br><a id="more"></a><br>看到个教程，说要修改next/layout/_layout.swig和next/_config.yml两个文件才可以实现效果</p>
 <p>因为next/layout/_layout.swig里面引用的文件链接打不开，我反过来调过去折腾了半个小时也不知道是哪里出的问题<br>后来再一搜索关键字canvas_nest，看见一个帖子详细说明hexo具体怎么配置，里面虽然没提及canvas_nest，但是<br>贴出来的配置里面有这个插件，原来它已经被集成在next主题里面了，只需要将布尔值设置为true就可以了。<br>具体为：在_config.yml文件找到canvas_nest并按照如下设置</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># Canvas-nest</div><div class="line">canvas_nest: true</div></pre></td></tr></table></figure>
 <p>运行hexo clean 和 hexo g、  hexo s，就可以在本地查看效果了。<br>同理，可以修改主题样式：找到schemes，几个样式自己选择一个喜欢的，hexo clean、hexo g、hexo s看效果，<br>都没问题就可以hexo d，部署到远端了。</p>
@@ -363,6 +403,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/主题/" rel="tag"># 主题</a>
+          
+        </div>
       
 
       
@@ -473,7 +519,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

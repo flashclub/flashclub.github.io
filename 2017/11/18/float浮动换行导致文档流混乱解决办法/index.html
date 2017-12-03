@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="将一个盒子big设置固定宽度，并用伪类清除浮动在里面设置两个盒子1,2,将1设置左浮动和宽高，将2设置右浮动并在里面设置3，4两个盒子（2触发了BFC不必清除浮动）将3，4设置右浮动和宽高，当3或者4的其中一个盒子宽度大于一定值时此时2的宽高由3，4撑开,调整3或者4的宽度，当2的宽度不够（big宽度-1宽度）时，2会”掉”下来，持续增大3的宽度，当3+4的宽度大于big时，3，4会折行显示，并且">
+<meta name="description" content="浮动的一些设置">
 <meta name="keywords" content="学习,浮动">
 <meta property="og:type" content="article">
 <meta property="og:title" content="float浮动换行导致文档流混乱解决办法">
 <meta property="og:url" content="http://yoursite.com/2017/11/18/float浮动换行导致文档流混乱解决办法/index.html">
 <meta property="og:site_name" content="梁长路的博客">
-<meta property="og:description" content="将一个盒子big设置固定宽度，并用伪类清除浮动在里面设置两个盒子1,2,将1设置左浮动和宽高，将2设置右浮动并在里面设置3，4两个盒子（2触发了BFC不必清除浮动）将3，4设置右浮动和宽高，当3或者4的其中一个盒子宽度大于一定值时此时2的宽高由3，4撑开,调整3或者4的宽度，当2的宽度不够（big宽度-1宽度）时，2会”掉”下来，持续增大3的宽度，当3+4的宽度大于big时，3，4会折行显示，并且">
+<meta property="og:description" content="浮动的一些设置">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-19T13:14:42.000Z">
+<meta property="og:updated_time" content="2017-12-03T08:31:24.199Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="float浮动换行导致文档流混乱解决办法">
-<meta name="twitter:description" content="将一个盒子big设置固定宽度，并用伪类清除浮动在里面设置两个盒子1,2,将1设置左浮动和宽高，将2设置右浮动并在里面设置3，4两个盒子（2触发了BFC不必清除浮动）将3，4设置右浮动和宽高，当3或者4的其中一个盒子宽度大于一定值时此时2的宽高由3，4撑开,调整3或者4的宽度，当2的宽度不够（big宽度-1宽度）时，2会”掉”下来，持续增大3的宽度，当3+4的宽度大于big时，3，4会折行显示，并且">
+<meta name="twitter:description" content="浮动的一些设置">
 
 
 
@@ -201,12 +201,52 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
           </a>
         </li>
       
@@ -342,7 +382,7 @@
       
 
       
-        <p>将一个盒子big设置固定宽度，并用伪类清除浮动<br>在里面设置两个盒子1,2,<br>将1设置左浮动和宽高，<br>将2设置右浮动并在里面设置3，4两个盒子（2触发了BFC不必清除浮动）<br>将3，4设置右浮动和宽高，当3或者4的其中一个盒子宽度大于一定值时<br>此时2的宽高由3，4撑开,<br>调整3或者4的宽度，当2的宽度不够（big宽度-1宽度）时，2会”掉”下来，<br>持续增大3的宽度，当3+4的宽度大于big时，3，4会折行显示，并且2的宽度等于big的宽度</p>
+        <p>浮动的一些设置<br><a id="more"></a><br>将一个盒子big设置固定宽度，并用伪类清除浮动<br>在里面设置两个盒子1,2,<br>将1设置左浮动和宽高，<br>将2设置右浮动并在里面设置3，4两个盒子（2触发了BFC不必清除浮动）<br>将3，4设置右浮动和宽高，当3或者4的其中一个盒子宽度大于一定值时<br>此时2的宽高由3，4撑开,<br>调整3或者4的宽度，当2的宽度不够（big宽度-1宽度）时，2会”掉”下来，<br>持续增大3的宽度，当3+4的宽度大于big时，3，4会折行显示，并且2的宽度等于big的宽度</p>
 <h2 id="盒子掉下遵循的方式"><a href="#盒子掉下遵循的方式" class="headerlink" title="盒子掉下遵循的方式"></a>盒子掉下遵循的方式</h2><p>当1，2盒子宽度大于big时，总是右侧浮动的盒子掉下去（换行）</p>
 <h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>其实解决方法很简单，给1和2都设置固定宽度，让里面的浮动元素只在1，2里面浮动，换行也只是在1，2里面换行，而不会影响1，2的布局</p>
 
@@ -514,7 +554,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

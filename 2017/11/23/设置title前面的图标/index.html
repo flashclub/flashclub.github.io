@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="每个网站标签栏上都有个小图标，看着自己的网页只是空空的，所以干脆学习一下怎么在title上加图标。不搜不知道，一艘吓一跳啊，这么简单的功能我竟然之前一直没学。简单说，就是一个link标签加一张.ico的图就可以啦，这里直接挂出来我看到的一个方法:http://blog.csdn.net/Creabine/article/details/50564984 具体来讲就是 1&amp;lt;link rel=&amp;">
+<meta name="description" content="每个网站标签栏上都有个小图标，看着自己的网页只是空空的，所以干脆学习一下怎么在title上加图标。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设置title前面的图标">
 <meta property="og:url" content="http://yoursite.com/2017/11/23/设置title前面的图标/index.html">
 <meta property="og:site_name" content="梁长路的博客">
-<meta property="og:description" content="每个网站标签栏上都有个小图标，看着自己的网页只是空空的，所以干脆学习一下怎么在title上加图标。不搜不知道，一艘吓一跳啊，这么简单的功能我竟然之前一直没学。简单说，就是一个link标签加一张.ico的图就可以啦，这里直接挂出来我看到的一个方法:http://blog.csdn.net/Creabine/article/details/50564984 具体来讲就是 1&amp;lt;link rel=&amp;">
+<meta property="og:description" content="每个网站标签栏上都有个小图标，看着自己的网页只是空空的，所以干脆学习一下怎么在title上加图标。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-23T16:31:45.000Z">
+<meta property="og:updated_time" content="2017-12-03T08:30:06.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设置title前面的图标">
-<meta name="twitter:description" content="每个网站标签栏上都有个小图标，看着自己的网页只是空空的，所以干脆学习一下怎么在title上加图标。不搜不知道，一艘吓一跳啊，这么简单的功能我竟然之前一直没学。简单说，就是一个link标签加一张.ico的图就可以啦，这里直接挂出来我看到的一个方法:http://blog.csdn.net/Creabine/article/details/50564984 具体来讲就是 1&amp;lt;link rel=&amp;">
+<meta name="twitter:description" content="每个网站标签栏上都有个小图标，看着自己的网页只是空空的，所以干脆学习一下怎么在title上加图标。">
 
 
 
@@ -200,12 +200,52 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
           </a>
         </li>
       
@@ -319,7 +359,7 @@
       
 
       
-        <p>每个网站标签栏上都有个小图标，看着自己的网页只是空空的，所以干脆学习一下<br>怎么在title上加图标。<br>不搜不知道，一艘吓一跳啊，这么简单的功能我竟然之前一直没学。<br>简单说，就是一个link标签加一张.ico的图就可以啦，<br>这里直接挂出来我看到的一个方法:<br><a href="http://blog.csdn.net/Creabine/article/details/50564984" target="_blank" rel="external">http://blog.csdn.net/Creabine/article/details/50564984</a></p>
+        <p>每个网站标签栏上都有个小图标，看着自己的网页只是空空的，所以干脆学习一下<br>怎么在title上加图标。<br><a id="more"></a><br>不搜不知道，一艘吓一跳啊，这么简单的功能我竟然之前一直没学。<br>简单说，就是一个link标签加一张.ico的图就可以啦，<br>这里直接挂出来我看到的一个方法:<br><a href="http://blog.csdn.net/Creabine/article/details/50564984" target="_blank" rel="external">http://blog.csdn.net/Creabine/article/details/50564984</a></p>
 <p>具体来讲就是</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;shortcut icon&quot; href=&quot; bitbug_favicon.ico&quot; /&gt;</div></pre></td></tr></table></figure>
 <p>多数时候我们都是用link标签来引入样式表，rel的值是stylesheet，link的<br>rel属性是规定被链接文档之间与当前文档的关系的意思，<br>（w3school的表述为:规定当前文档与被链接文档之间的关系,但是我认为按照从属结构来说<br>我的表述更妥当一些）<br>例如&lt;link rel=”stylesheet”&gt;就是说明了link链接的文档属于当前的文档的外部链接样式表。</p>
@@ -478,7 +518,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
