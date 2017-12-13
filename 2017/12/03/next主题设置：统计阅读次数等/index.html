@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="梁长路的博客">
 <meta property="og:description" content="使用百度统计和LeanCloud实现博客PV统计和博文浏览量统计">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-04T03:11:00.170Z">
+<meta property="og:updated_time" content="2017-12-12T10:01:28.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="next主题设置：统计阅读次数等">
 <meta name="twitter:description" content="使用百度统计和LeanCloud实现博客PV统计和博文浏览量统计">
@@ -344,7 +344,11 @@
         <p>使用百度统计和LeanCloud实现博客PV统计和博文浏览量统计</p>
 <a id="more"></a>
 <p>今天继续完善博客。看了几篇文章，提到了用百度统计和leancloud查看博客数据的方法，觉得不错，便动手实现了一下，详细步骤见下文。</p>
-<h2 id="百度统计设置"><a href="#百度统计设置" class="headerlink" title="百度统计设置"></a>百度统计设置</h2><p>以下方法实用next主题：<br>首先注册百度统计账号，然后在管理—&gt; 代码管理，在代码获取窗口，复制js?后面的字符串，然后在站点配置文件中，新增一个字段baidu_analytics：，将刚才复制的字符串粘贴上去，然后保存，在博中的设置就结束了。<br>如果实用hexo的默认主题landscape，需要实用另外方法设置百度统计，具体为：<br>1.在主题配置文件<br>此处设置和</p>
+<h2 id="百度统计设置"><a href="#百度统计设置" class="headerlink" title="百度统计设置"></a>百度统计设置</h2><p>以下方法实用next主题：<br>首先注册百度统计账号，然后在管理—&gt; 代码管理，网站列表–自有网站，点新增网站，输入你的网站域名和网站首页，然后在代码获取窗口，复制js?后面的字符串，然后在站点配置文件中，新增一个字段baidu_analytics：，将刚才复制的字符串粘贴上去，然后保存，在博中的设置就结束了。<br>如果使用hexo的默认主题landscape，需要实用另外方法设置百度统计，具体为：<br>1.在站点配置文件(博客根目录下的_config.yml文件)中输入配置baidu_tongji: true<br>2.在themes/landscape/layout/_partial中新建baidu_tongji.ejs文件并且输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;% if (theme.baidu_tongji)&#123; %&gt;</div><div class="line">百度代码</div><div class="line"></div><div class="line">&lt;% &#125; %&gt;</div></pre></td></tr></table></figure></p>
+<p>然后在百度统计的代码获取界面复制代码，替换上面的“百度代码”四个字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;% if (theme.baidu_tongji)&#123; %&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">var _hmt = _hmt || [];</div><div class="line">(function() &#123;</div><div class="line">  var hm = document.createElement(&quot;script&quot;);</div><div class="line">  hm.src = &quot;https://hm.baidu.com/hm.js?ca176460c470ae2a695eb14fd5e63923&quot;;</div><div class="line">  var s = document.getElementsByTagName(&quot;script&quot;)[0]; </div><div class="line">  s.parentNode.insertBefore(hm, s);</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;% &#125; %&gt;</div></pre></td></tr></table></figure>
+<p>3.打开themes/landscape/layout/_partial/head.ejs，在前面添加如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;%- partial(&apos;baidu_tongji&apos;) %&gt;</div></pre></td></tr></table></figure></p>
+<p>至此，不论使用next主题还是系统默认主题，hexo的设置就结束了。然后在在hexo clean,hexo d -g，在百度统计–代码安装检查页面就可以看到’页面代码安装状态：代码安装正确’字样，就说明百度统计就设置好了。<br>接下来设置显示阅读次数</p>
 
       
     </div>
@@ -439,7 +443,7 @@
           
   
     <div class="comments" id="comments">
-      <div id="uyan_frame"></div>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjM4Mi84OTQz"></div>
     </div>
   
 
@@ -710,17 +714,29 @@
 
 
     
-      
-    
 
    
         <!-- UY BEGIN -->
-        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2149415"></script>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
         <!-- UY END -->
     
   
 
 
+  
+    <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+  </script>
   
 
 
