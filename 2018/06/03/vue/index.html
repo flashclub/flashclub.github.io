@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon2.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.png?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="梁长路,1io0.com,hexo," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="使用vue搭配一些npm的包开发单页应用简单高效，是目前比较流行的开发方式，下面就详细讲解如何生成配置一个单页vue应用环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue单页应用">
+<meta property="og:url" content="http://yoursite.com/2018/06/03/vue/index.html">
+<meta property="og:site_name" content="梁长路的博客">
+<meta property="og:description" content="使用vue搭配一些npm的包开发单页应用简单高效，是目前比较流行的开发方式，下面就详细讲解如何生成配置一个单页vue应用环境">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://cn.vuejs.org/images/lifecycle.png">
+<meta property="og:updated_time" content="2018-06-03T12:58:26.171Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue单页应用">
+<meta name="twitter:description" content="使用vue搭配一些npm的包开发单页应用简单高效，是目前比较流行的开发方式，下面就详细讲解如何生成配置一个单页vue应用环境">
+<meta name="twitter:image" content="https://cn.vuejs.org/images/lifecycle.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/03/vue/"/>
+
+
+
+
+
+  <title>vue单页应用 | 梁长路的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ca176460c470ae2a695eb14fd5e63923";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">梁长路的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">路漫漫其修远兮 吾将上下而求索</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/03/vue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="长路">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/title.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="梁长路的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue单页应用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T20:56:51+08:00">
+                2018-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/06/03/vue/" class="leancloud_visitors" data-flag-title="vue单页应用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>使用vue搭配一些npm的包开发单页应用简单高效，是目前比较流行的开发方式，下面就详细讲解如何生成配置一个单页vue应用环境<br><a id="more"></a></p>
+<h2 id="1-基本配置"><a href="#1-基本配置" class="headerlink" title="1. 基本配置"></a>1. 基本配置</h2><ul>
+<li><h3 id="1-全局安装-vue-cli-命令"><a href="#1-全局安装-vue-cli-命令" class="headerlink" title="1. 全局安装 vue-cli 命令:"></a>1. 全局安装 vue-cli 命令:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install vue-cli -g</div></pre></td></tr></table></figure>
+<p>这个操作只要执行一次,你的全局模块中就会有vue-cli，不需要每次创建一个项目都执行。这个操作以后每次创建项目的时候只要在项目文件夹下,<code>vue init 模板名</code>（此处的模板名可以是 webpack 等）回车即可。如果希望项目建立在新文件。</p>
+</li>
+<li><h3 id="2-根据-提示-选择-按回车-y-n"><a href="#2-根据-提示-选择-按回车-y-n" class="headerlink" title="2.根据 提示 选择 按回车 \ y \ n"></a>2.根据 提示 选择 按回车 \ y \ n</h3><p>此步骤是根据项目进行相关基础设置，进行下一步自动下载依赖包，等待片刻。</p>
+</li>
+<li><h3 id="3-运行应用"><a href="#3-运行应用" class="headerlink" title="3.运行应用"></a>3.运行应用</h3>在下载完依赖包后命令行会提示使用 <code>npm run dev</code>运行应用，键入命令后打开浏览器,输入localhost:8080如果运行成功则会看到一个vue图片和一些标签选项<br>以上步骤做完后就可以进行正常的开发工作了</li>
+</ul>
+<h2 id="2-开发应用"><a href="#2-开发应用" class="headerlink" title="2. 开发应用"></a>2. 开发应用</h2><ul>
+<li><h3 id="1-解读文件结构"><a href="#1-解读文件结构" class="headerlink" title="1.解读文件结构"></a>1.解读文件结构</h3>在项目文件夹下自动生成好许多文件和文件夹，我们需要改成适合我们项目需要的结构<br>对于文件夹：build、config、static和node_modules暂时不需要动，并且所有项目根目录下的所有文件也暂时不需要动，那么我们所有的代码实际上都是放在src里面。</li>
+</ul>
+<h2 id="3-src配置"><a href="#3-src配置" class="headerlink" title="3. src配置"></a>3. src配置</h2><p>  我们以一个具体的项目todolist为例，实现最基本的增删改操作和切换操作。<br>  src下文件和文件夹具体如下<br>  assets,conponents,app.vue,main.js,本项目需要用到vuex和router相关内容，所以需要有router和store文件夹。既然说到需要用到vuex，那么需要在依赖中安装vuex，所以运行<br>  <code>npm i vuex --save</code>。<br>  下面依次详解src里面程序功能和具体代码<br>  本次todolist的例子是添加、修改、删除列表的操作，所以我们主要分成三个部分，即头部：一个输入框，中间部分：渲染内容，底部：未完成列表数量、各种状态切换等功能。所以需要各种模板和仓库等配置。</p>
+<ul>
+<li><h3 id="1-静态文件–-gt-assets"><a href="#1-静态文件–-gt-assets" class="headerlink" title="1.静态文件–&gt;assets"></a>1.静态文件–&gt;assets</h3>assets文件夹主要保存项目需要用到的一些静态文件，例如css、img、基本不会修改的js文件等，为了便于管理，最好将他们分别装进各自的文件夹里</li>
+<li><h3 id="2-路由和仓库"><a href="#2-路由和仓库" class="headerlink" title="2.路由和仓库"></a>2.路由和仓库</h3>项目需要用到路由(router)和仓库(store)所以在router和store里各自建立index.js文件，便于后续配置文件</li>
+<li><h3 id="3-模板"><a href="#3-模板" class="headerlink" title="3.模板"></a>3.模板</h3>前面提到，项目是由三个模板组成，其实他们有一个功能的父级模板就是App.vue，这个模板是系统自动生成的，我们需要在components里新建我们需要的三个模板：myhead,mymain,myfooter</li>
+<li><h3 id="4-跟实例，即程序主入口"><a href="#4-跟实例，即程序主入口" class="headerlink" title="4.跟实例，即程序主入口"></a>4.跟实例，即程序主入口</h3><p>main.js即程序的主入口了，需要实例化vue并且将跟挂载在实例上</p>
+<h2 id="4-实现todolist"><a href="#4-实现todolist" class="headerlink" title="4. 实现todolist"></a>4. 实现todolist</h2><p>前面做了很多准备工作，也解释了每个文件的作用，现在终于要开始实现需求了，一步一步来实现它</p>
+</li>
+<li><h3 id="1-main-js设置"><a href="#1-main-js设置" class="headerlink" title="1. main.js设置"></a>1. main.js设置</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App'</span></div><div class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'./router'</span></div><div class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">"./store"</span></div><div class="line"><span class="keyword">import</span> <span class="string">"@/assets/css/css.css"</span></div></pre></td></tr></table></figure>
+<p>首先引入一些文件，确切的说是将这些文件export default的东西引进来<br><code>import 名字 from 文件</code>是ES6的语法，必须搭配export default {}使用才有意义，export其他内容也可以，但是想在一个文件import，那另一个文件必须export内容才行，这里不详细展开，详见<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/export" target="_blank" rel="external">export MDN</a>。在引入vue时代表的就是引入vue文件，webpack内部会进行处理./App代表引入了整个父级模板<code>App.vue</code>./router和./store则代表了引入了router文件夹和store文件夹下的<code>index.js</code>，没错，这也是webpack的默认设置。<code>import &quot;@/assets/css/css.css&quot;</code>，@的作用是src路径，则这句话代表引入.css文件。默认设置可以参考根目录<code>build/webpack.base.conf.js</code>里面的设置。然后其他设置</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Vue.config.productionTip = <span class="literal">false</span></div><div class="line"></div><div class="line"><span class="comment">/* eslint-disable no-new */</span></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#app'</span>,</div><div class="line">  router,</div><div class="line">  store,</div><div class="line">  components: &#123; App &#125;,</div><div class="line">  template: <span class="string">'&lt;App/&gt;'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>设置为 false 以阻止 vue 在启动时生成生产提示。详见<a href="https://cn.vuejs.org/v2/api/#productionTip" target="_blank" rel="external">vue api</a>。vue实例里面分别是挂载点、路由、仓库、子模块和模板，后续<code>main.js</code>更新再讲解。</p>
+<ul>
+<li><h3 id="2-App-vue设置"><a href="#2-App-vue设置" class="headerlink" title="2. App.vue设置"></a>2. App.vue设置</h3></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"todoapp"</span> <span class="attr">id</span>=<span class="string">"todoapp"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">todo-header</span>&gt;</span><span class="tag">&lt;/<span class="name">todo-header</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">todo-main</span>&gt;</span><span class="tag">&lt;/<span class="name">todo-main</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">todo-footer</span>&gt;</span><span class="tag">&lt;/<span class="name">todo-footer</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">  <span class="keyword">import</span> h <span class="keyword">from</span> <span class="string">"@/components/myhead.vue"</span>;</span></div><div class="line"><span class="javascript">  <span class="keyword">import</span> m <span class="keyword">from</span> <span class="string">"@/components/mymain.vue"</span>;</span></div><div class="line"><span class="javascript">  <span class="keyword">import</span> f <span class="keyword">from</span> <span class="string">"@/components/myfooter.vue"</span>;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></div><div class="line"><span class="javascript">    name: <span class="string">"App"</span>,</span></div><div class="line"><span class="undefined">    components:&#123;</span></div><div class="line"><span class="javascript">      <span class="string">'todo-header'</span>:h,</span></div><div class="line"><span class="javascript">      <span class="string">'todo-main'</span>:m,</span></div><div class="line"><span class="javascript">      <span class="string">'todo-footer'</span>:f</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined">  &#125;;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>App.vue是主模板，这是一个.vue文件。在<code>&lt;template&gt;</code>中是一个<code>&lt;section&gt;</code>，里面包裹着三个模板。在<code>&lt;script&gt;</code>中引入三个子模板文件，在<code>export default</code>中引入这三个模板。</p>
+<ul>
+<li><h3 id="3-components配置"><a href="#3-components配置" class="headerlink" title="3.components配置"></a>3.components配置</h3>在<code>myhead.vue</code>文件中:<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">header</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>todos<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span></span></div><div class="line"><span class="tag">            <span class="attr">ref</span>=<span class="string">"inp"</span></span></div><div class="line"><span class="tag">            <span class="attr">type</span>=<span class="string">"text"</span></span></div><div class="line"><span class="tag">            <span class="attr">v-model</span>=<span class="string">'val'</span></span></div><div class="line"><span class="tag">            @<span class="attr">keyup.enter</span>=<span class="string">'submit'</span></span></div><div class="line"><span class="tag">            <span class="attr">class</span>=<span class="string">"new-todo"</span></span></div><div class="line"><span class="tag">            <span class="attr">placeholder</span>=<span class="string">"请输入新的任务"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></div><div class="line"><span class="undefined">data()&#123;</span></div><div class="line"><span class="javascript">  <span class="keyword">return</span>&#123;</span></div><div class="line"><span class="javascript">    val:<span class="string">''</span></span></div><div class="line"><span class="undefined">  &#125;</span></div><div class="line"><span class="undefined">&#125;,</span></div><div class="line"><span class="undefined">methods:&#123;</span></div><div class="line"><span class="undefined">  submit()&#123;</span></div><div class="line"><span class="javascript">    <span class="keyword">this</span>.$store.commit(<span class="string">'addList'</span>,<span class="keyword">this</span>.val);</span></div><div class="line"><span class="javascript">    <span class="keyword">this</span>.val = <span class="string">''</span>;</span></div><div class="line"><span class="undefined">  &#125;</span></div><div class="line"><span class="undefined">&#125;,</span></div><div class="line"><span class="undefined">mounted()&#123;</span></div><div class="line"><span class="javascript">    <span class="comment">//生命周期</span></span></div><div class="line"><span class="javascript">    <span class="keyword">this</span>.$refs.inp.focus();</span></div><div class="line"><span class="undefined">  &#125;</span></div><div class="line"><span class="undefined">&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><a href="https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA" target="_blank" rel="external">生命周期</a>是vue中比较重要的一个概念，在vue中实例有4个阶段8个钩子函数，<code>mounted</code>阶段是将实例挂载好后的一个阶段，具体图如下</p>
+<p>vue官方文档说生命周期可以慢慢体会了解，我也建议这样，在以后的使用中对这张图的体会肯定会更深，现在只作为简单了解就可以了。</p>
+<p>回过头看<code>&lt;template&gt;</code>中的内容在<code>input</code>中有<br><code>ref,type,keyup.enter,v-model,class,placeholder</code><br>，因为<code>&lt;header&gt;</code>里面主要就是input，所以基本上所有功能都是围绕input。</p>
+<ul>
+<li>1.<a href="https://cn.vuejs.org/v2/api/#vm-refs" target="_blank" rel="external">vue-ref</a> 是vue的一个api，在这里通过在<code>mounted</code>阶段调用，主要作用是页面一打开时获取焦点。后续用到时会详解。</li>
+<li>2.input内容通过val双向数据绑定。</li>
+<li><p>3.在按下回车(@keyup.enter)时调用<code>submit</code>方法，然后调用数据的addList方法，并且将<code>this.val</code>作为参数带过去。</p>
+<p>class和placeholder就是基本功能不细说</p>
+</li>
+</ul>
+<p><img src="https://cn.vuejs.org/images/lifecycle.png"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持学习，坚持原创分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="长路 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/22/for中let和var有什么区别/" rel="next" title="for中let和var有什么区别">
+                <i class="fa fa-chevron-left"></i> for中let和var有什么区别
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjM4Mi84OTQz"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/title.png"
+                alt="长路" />
+            
+              <p class="site-author-name" itemprop="name">长路</p>
+              <p class="site-description motion-element" itemprop="description">不做听故事的人，做故事里的人</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/flashclub" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基本配置"><span class="nav-number">1.</span> <span class="nav-text">1. 基本配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-全局安装-vue-cli-命令"><span class="nav-number">1.1.</span> <span class="nav-text">1. 全局安装 vue-cli 命令:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-根据-提示-选择-按回车-y-n"><span class="nav-number">1.2.</span> <span class="nav-text">2.根据 提示 选择 按回车 \ y \ n</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-运行应用"><span class="nav-number">1.3.</span> <span class="nav-text">3.运行应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-开发应用"><span class="nav-number">2.</span> <span class="nav-text">2. 开发应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-解读文件结构"><span class="nav-number">2.1.</span> <span class="nav-text">1.解读文件结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-src配置"><span class="nav-number">3.</span> <span class="nav-text">3. src配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-静态文件–-gt-assets"><span class="nav-number">3.1.</span> <span class="nav-text">1.静态文件–>assets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-路由和仓库"><span class="nav-number">3.2.</span> <span class="nav-text">2.路由和仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-模板"><span class="nav-number">3.3.</span> <span class="nav-text">3.模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-跟实例，即程序主入口"><span class="nav-number">3.4.</span> <span class="nav-text">4.跟实例，即程序主入口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-实现todolist"><span class="nav-number">4.</span> <span class="nav-text">4. 实现todolist</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-main-js设置"><span class="nav-number">4.1.</span> <span class="nav-text">1. main.js设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-App-vue设置"><span class="nav-number">4.2.</span> <span class="nav-text">2. App.vue设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-components配置"><span class="nav-number">4.3.</span> <span class="nav-text">3.components配置</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">长路</span>
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+    
+
+   
+        <!-- UY BEGIN -->
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+        <!-- UY END -->
+    
+  
+
+
+  
+    <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+  </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("vE0izUXTNTkMJW5LfgjqNXFC-gzGzoHsz", "91Sjt6O5fOvPzaPvAFPXEtuS");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
