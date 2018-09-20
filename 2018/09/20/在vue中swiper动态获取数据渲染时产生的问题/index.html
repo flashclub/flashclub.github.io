@@ -79,17 +79,20 @@
 
 
 
-<meta name="description" content="不做听故事的人，做故事里的人">
+<meta name="description" content="在项目中有这样一个需求：顶部上下轮播用户获奖信息 轮播里面的文字数据是后端返回给前端的，我直接用vue渲染，但是改变数据后没有实时显示在视图里面， 所以用到了Vue原生api：Vue.nextTick()，在数据改变之后立马在视图里面渲染出来，这就涉及到了swiper切换的问题…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在vue中swiper动态获取数据渲染时产生的问题">
 <meta property="og:url" content="http://yoursite.com/2018/09/20/在vue中swiper动态获取数据渲染时产生的问题/index.html">
 <meta property="og:site_name" content="laughing的博客">
-<meta property="og:description" content="不做听故事的人，做故事里的人">
+<meta property="og:description" content="在项目中有这样一个需求：顶部上下轮播用户获奖信息 轮播里面的文字数据是后端返回给前端的，我直接用vue渲染，但是改变数据后没有实时显示在视图里面， 所以用到了Vue原生api：Vue.nextTick()，在数据改变之后立马在视图里面渲染出来，这就涉及到了swiper切换的问题…">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-20T13:58:32.364Z">
+<meta property="og:image" content="https://i.loli.net/2018/09/04/5b8e433c7486b.png">
+<meta property="og:image" content="https://i.loli.net/2018/09/04/5b8e43ac89477.png">
+<meta property="og:updated_time" content="2018-09-20T14:06:48.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在vue中swiper动态获取数据渲染时产生的问题">
-<meta name="twitter:description" content="不做听故事的人，做故事里的人">
+<meta name="twitter:description" content="在项目中有这样一个需求：顶部上下轮播用户获奖信息 轮播里面的文字数据是后端返回给前端的，我直接用vue渲染，但是改变数据后没有实时显示在视图里面， 所以用到了Vue原生api：Vue.nextTick()，在数据改变之后立马在视图里面渲染出来，这就涉及到了swiper切换的问题…">
+<meta name="twitter:image" content="https://i.loli.net/2018/09/04/5b8e433c7486b.png">
 
 
 
@@ -340,7 +343,23 @@
       
 
       
-        
+        <p>在项目中有这样一个需求：顶部上下轮播用户获奖信息</p>
+<p>轮播里面的文字数据是后端返回给前端的，我直接用vue渲染，但是改变数据后没有实时显示在视图里面， 所以用到了Vue原生api：Vue.nextTick()，在数据改变之后立马在视图里面渲染出来，这就涉及到了swiper切换的问题…</p>
+<a id="more"></a>
+<p>在项目中有这样一个需求：顶部上下轮播用户获奖信息</p>
+<p>轮播里面的文字数据是后端返回给前端的，我直接用vue渲染，但是改变数据后没有实时显示在视图里面，<br>所以用到了Vue原生api：Vue.nextTick()，在数据改变之后立马在视图里面渲染出来，这就涉及到了swiper切换的问题，因为我是批量生成的：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span> <span class="attr">v-for</span>=<span class="string">"item in loopInfo"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>在需要更新数据时这样写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.lockUpSwiper();</div><div class="line"><span class="keyword">this</span>.loopInfo = [];</div><div class="line">Vue.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'更新dom'</span>);</div><div class="line">    <span class="comment">// self.unlockUpSwiper();</span></div><div class="line">    self.topLoop();     <span class="comment">//DOM更新时直接开启swiper不用解锁上一个上了锁的swiper，因为dom更新了，上一个swiper被干掉了</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>其中<code>lockUpSwiper();</code>是我自己封装的方法，里面就两行代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.topSwiper.lockSwipeToPrev();</div><div class="line"><span class="keyword">this</span>.topSwiper.lockSwipeToNext();</div></pre></td></tr></table></figure>
+<p><code>topSwiper</code>是swiper实例，<code>lockSwipeToPrev()</code>和<code>lockSwipeToNext()</code>是swiper的api，就是字面意思：锁住swiper不让swiper上翻或者下翻，那么问题来了，为什么要锁住swiper而不用解锁呢：<code>self.unlockUpSwiper();</code>。在锁住swiper后由于改变了数据，实际上swiper已经重新被定义了，这时候如果调用<code>self.unlockUpSwiper();</code>会导致swiper数据错乱，简单形容现象就是乱刷，具体为什么会乱刷需要看源码中的逻辑，感兴趣的大家可以看一下，这里就不深究原因啦只小小的展开一下，</p>
+<p>错误图片：<br><img src="https://i.loli.net/2018/09/04/5b8e433c7486b.png" alt="错误图片"></p>
+<p>正常图片：<br><img src="https://i.loli.net/2018/09/04/5b8e43ac89477.png" alt="正常图片"></p>
+<p>从上面两张图可以看出出错时同一时间有6个(甚至更多)项目在切换class，这直接导致样式错乱。而正常时只有4个项目在切换class。swiper是通过添加和删除样式来改变每一项，具体的swiper-slide所在的元素上的改变是三个class：<br><code>swiper-slide-prev``swiper-slide-active``swiper-slide-next</code>，分别对应上一个显示内容，当前显示内容和下一次显示的内容，在swiper.css中，这三个class分别是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.swiper-slide-prev&#123;pointer-events:auto;visibility:visible&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.swiper-slide-active&#123;pointer-events:auto&#125;</div><div class="line"></div><div class="line">或者</div><div class="line"></div><div class="line">.swiper-container-cube .swiper-slide-active&#123;pointer-events:auto;visibility:visible&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.swiper-slide-next&#123;pointer-events:auto;visibility:visible&#125;</div></pre></td></tr></table></figure>
+<p>可以看到active有visiblity的状态变化，具体需要参照<code>.swiper-slide</code>的样式来看，这里也不过分展开了。</p>
+<p>写了一堆有的没的，把想表达的总结一下：swiper中的切换项在改变之前应该停止siper，然后项目就为之后不需要开启(unlockto)swiper，而重新实例化一个swiper就可以了。swiper是一款可用度非常高的插件，希望大家将使用中遇到的问题和解决办法总结出来分享出来。</p>
+
       
     </div>
     
@@ -397,10 +416,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/20/在vue中swiper动态获取数据渲染时产生的问题-1/" rel="prev" title="在vue中swiper动态获取数据渲染时产生的问题">
-                在vue中swiper动态获取数据渲染时产生的问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -474,7 +489,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
